@@ -17,16 +17,16 @@ interface AccountDAO {
     fun findById(id: Int): Account
 
     @Insert
-    fun insertAll(vararg todo: Account) : List<Long>
+    fun insertAll(vararg account: Account) : List<Long>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(obj: Account): Long
 
     @Delete
-    fun delete(todo: Account)
+    fun delete(account: Account)
 
     @Update
-    fun update( account: Account)
+    fun update(account: Account)
 
     @Query("DELETE FROM account")
     fun deleteAll()
